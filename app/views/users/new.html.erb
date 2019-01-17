@@ -1,0 +1,14 @@
+<section class="sign-up">
+  <h1>Signup!</h1>
+
+  <%= form_for :user, url: '/users' do |f| %>
+    Firstname: <%= f.text_field :first_name %>
+    Lastname: <%= f.text_field :last_name %>
+    Email: <%= f.text_field :email %>
+    Password: <%= f.text_field :password %>
+    Password Confirmation: <%= f.text_field :password_confirmation%>
+    <%= f.submit "Submit" %>
+  <% end %>
+
+
+</section>
