@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thank you for your order, <%= @user.first_name %> <%= @user.last_name %></h1>
+    <p>
+      You have successfully placed an order. Please check your order-details below.<br>
+    </p>
+    <div>
+      <% @lineitems.each do |item| %>
+      <%= render 'order', product: Product.find(item[:product_id]), quantity: item[:quantity] %>
+      <% end %>
+    </div>
+    <p>Thanks for the order and have a great day!</p>
+  </body>
+</html>
