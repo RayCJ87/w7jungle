@@ -4,9 +4,9 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 
 ## Final Product
 
-!["Screenshot of index page]()
-!["Screenshot of top right nav bar]()
-!["Screenshot of product with reviews]()
+!["Screenshot of index page](https://github.com/RayCJ87/w7jungle/blob/feature/product-ratings/Screenshot/Index.png)
+!["Screenshot of top right nav bar](https://github.com/RayCJ87/w7jungle/blob/feature/product-ratings/Screenshot/navbar.png)
+!["Screenshot of product with reviews](https://github.com/RayCJ87/w7jungle/blob/feature/product-ratings/Screenshot/productPage.png)
 
 ## Setup
 
