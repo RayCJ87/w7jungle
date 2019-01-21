@@ -84,14 +84,38 @@ main section.products-show {
     }
   }
 
+  .input-description {
+  float: left;
+  margin-right: 75px;
+  }
+
+
+  .the-Submit {
+  float: right;
+  }
+
+  .review-class, .new-review {
+    margin-top: 20px;
+    margin-right: 100px;
+    float: right
+  }
+
   .review-desc {
     float: left
   }
 
   .review-rating {
   color: red;
-    float: right
   }
+
+  .btn-delete {
+  left: 10px;
+  width:50px;
+  height: 25px;
+  color: red;
+  }
+
+
 
 }
 

@@ -25,28 +25,44 @@
         </dl>
       </div>
       <div class="new-review">
-          <%= form_for @review do |f| %>
-          Description: <%= f.text_area :description %>
-          Rating: <%= f.select(:rating, [1,2,3,4,5]) %>
-          <%= f.submit "Submit" %>
+          <%= form_for [@product, @review] do |f| %>
+          <table>
+            <tr>
+              <th class="input-description">Description:</th>
+              <th class="input-rating">Rating:</th>
+            <tr>
+            <tr>
+              <td class="input-description"><%= f.text_area :description %>
+              </td>
+              <td class="input-rating"> <%= f.select(:rating, [1,2,3,4,5]) %>
+              </td>
+            </tr>
+          </table>
+          <span class="the-Submit"><%= f.submit "Submit" %></span>
           <% end %>
       </div>
-      <% @review.each do |r|%>
-      <div class="review-desc">
-        <ul> Description:
-          <p> <%= r.description %>
-          </p>
-        </ul>
+
+      <div class="review-class">
+        <table class="review-table">
+          <tr>
+            <th class="review-name" width='150px' height="40px">User</th>
+            <th class="review-description" width='300px' height="40px">Description</th>
+            <th class="review-rating" height="40px">Rating</th>
+          </tr>
+          <% @product.review.reverse_order.each do |r|%>
+          <tr>
+            <td class="review-name" width='150px' height="40px"><%= r.user.first_name %> <%= r.user.last_name %></td>
+            <td class="review-description" width='300px' height="40px"><%= r.description %></td>
+            <td class="review-rating" height="40px"><%= r.rating %></td>
+            <% if current_user && current_user.email == r.user.email %>
+            <td><%= button_to "delete", [@product, r], :method  => :delete, class: "btn-delete" %></td>
+            <% end %>
+          </tr>
+          <% end %>
+          </table>
       </div>
-      <div class="review-rating">
-        <ul> Rating:
-          <p> <%= r.rating %>
-          </p>
-        </ul>
-      </div>
-      <% end %>
+
     </div>
 
   </article>
 
-</section>

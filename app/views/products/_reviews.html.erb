@@ -1,0 +1,44 @@
+
+<h2>Reviews</h2>
+<div class="form-group">
+  <table class="table rounded">
+    <% if current_user %>
+      <%= form_for [@product, @review] do |f| %>
+        <tbody>
+          <tr>
+            <th class='col-sm-8'><%= f.label :description %></th>
+            <th class='col-sm-4'><%= f.label :rating %></th>
+          </tr>
+          <tr>
+            <td><%= f.text_area :description %></td>
+            <td><%= f.select "rating", ['1', '2', '3', '4', '5'], {} %></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <td><%= f.submit "Submit", class: "btn btn-primary", type: "submit" %></td>
+        </tfoor>
+      <% end %>
+    <% else %>
+    <% end %>
+  </table>
+</div>
+
+<div class="panel panel-default items">
+  <table class="table rounded">
+    <tr>
+      <th>User</th>
+      <th>Rating</th>
+      <th>Description</th>
+    </tr>
+    <% @product.review.reverse_order.each do |review| %>
+      <tr>
+        <td><%= review.user.first_name %></td>
+        <td><%= review.rating %></td>
+        <td><%= review.description %></td>
+        <% if current_user && current_user.email == review.user.email %>
+          <td><%= button_to "delete", [@product, review], :method  => :delete, class: "btn btn-danger" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>
