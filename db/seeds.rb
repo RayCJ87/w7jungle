@@ -29,13 +29,25 @@ cat1 = Category.find_or_create_by! name: 'Apparel'
 cat2 = Category.find_or_create_by! name: 'Electronics'
 cat3 = Category.find_or_create_by! name: 'Furniture'
 
+
+## USERS
+
+user1 = User.create!({
+  first_name: 'Jake',
+  last_name: 'Reacher',
+  email: 'JR@coo.com',
+  password_digest: '1234'
+})
+
+
 ## PRODUCTS
+
 
 puts "Re-creating Products ..."
 
 Product.destroy_all
 
-cat1.products.create!({
+product1 = cat1.products.create!({
   name:  'Men\'s Classy shirt',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel1.jpg'),
@@ -43,13 +55,16 @@ cat1.products.create!({
   price: 64.99
 })
 
-cat1.products.create!({
+product2 = cat1.products.create!({
   name:  'Women\'s Zebra pants',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel2.jpg'),
   quantity: 18,
   price: 124.99
 })
+
+
+
 
 cat1.products.create!({
   name:  'Hipster Hat',
@@ -130,6 +145,20 @@ cat3.products.create!({
   image: open_asset('furniture3.jpg'),
   quantity: 23,
   price: 2_483.75
+})
+
+## Reviews here
+
+product1.review.create({
+  user_id: 1,
+  description: "vey nice design",
+  rating: 3
+})
+
+product2.review.create({
+  user_id: 1,
+  description: "My son loves it.",
+  rating: 4
 })
 
 

@@ -2,7 +2,7 @@ class CartsController < ApplicationController
 
   def show
     if cart.size == 0
-      flash.now[:notice] = 'Your cart is empty!'
+
       redirect_to '/'
     end
   end

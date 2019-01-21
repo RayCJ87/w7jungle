@@ -24,6 +24,27 @@
           <dd><%= @product.price %></dd>
         </dl>
       </div>
+      <div class="new-review">
+          <%= form_for @review do |f| %>
+          Description: <%= f.text_area :description %>
+          Rating: <%= f.select(:rating, [1,2,3,4,5]) %>
+          <%= f.submit "Submit" %>
+          <% end %>
+      </div>
+      <% @review.each do |r|%>
+      <div class="review-desc">
+        <ul> Description:
+          <p> <%= r.description %>
+          </p>
+        </ul>
+      </div>
+      <div class="review-rating">
+        <ul> Rating:
+          <p> <%= r.rating %>
+          </p>
+        </ul>
+      </div>
+      <% end %>
     </div>
 
   </article>

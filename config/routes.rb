@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   # get '/signup', to: "users#new"
   # get '/users', to: "users#create"
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show] do
+    resources :reviews, only: [:create]
+  end
   resources :categories, only: [:show]
   resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create] do

@@ -1,0 +1,10 @@
+<section class="write-review">
+  <h1>Make a review:</h1>
+
+  <%= form_for :review, url: product_reviews_path do |f| %>
+    Description: <%= f.text_area :description %>
+    Rating: <%= f.collection_select :rating, [1,2,3,4,5] %>
+    <%= f.submit "Submit" %>
+  <% end %>
+
+</section>
